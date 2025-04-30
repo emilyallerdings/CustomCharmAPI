@@ -13,7 +13,6 @@
 
 - Register custom powerups (charms) with custom models and sounds
 - Hook into game events like equip/unequip
-- Supports localization through I2
 - Automatically integrates with the game's charm system
 
 ## 🚀 Installation
@@ -98,6 +97,18 @@ It demonstrates:
 
 ---
 
+## 🚧 TODO / Planned Features
+
+- **Multiple Language Support**  
+  Extend localization to fully support multiple languages using I2 integration
+  
+- **Terminal**  
+  Add charms to terminal in game for viewing.
+
+- **Locked Charms**  
+  Allow for charms to be locked and have unlock requirements.
+
+---
 
 ## 🛠️ Contributing
 
