@@ -35,16 +35,22 @@ public class MyCharmPlugin : BaseUnityPlugin
 {
     void Awake()
     {
+        //Load your asset bundle next to your plugin dll.
         string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "mybundle");
         AssetBundle bundle = AssetBundle.LoadFromFile(path);
 
+        //get the prefab and sound from the bundle if you have them.
         GameObject prefab = bundle.LoadAsset<GameObject>("mycharm");
         AudioClip sound = bundle.LoadAsset<AudioClip>("mysound");
 
+        //Name your prefab.
         prefab.name = "Powerup My Charm";
+
+        //OPTIONALLY: set rotation/scale of your model if needed.
         prefab.transform.localScale = Vector3.one;
         prefab.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
 
+        //Create new CustomPowerup Object with params, here's and example below. There are more params you can look through in the method declaration.
         CustomPowerup myCharm = new CustomPowerup
         {
             prefab = prefab,
@@ -56,9 +62,11 @@ public class MyCharmPlugin : BaseUnityPlugin
             onUnequip = OnUnequip
         };
 
+        //Add your custom powerup to the powerup API.
         CustomPowerupAPI.AddCustomPowerup(myCharm);
     }
 
+    //Define logic for your charm to run onEquip/onUnequip/onPutInDrawer/onThrowaway.
     private static void OnEquip(PowerupScript powerup) => Debug.Log("Equipped charm!");
     private static void OnUnequip(PowerupScript powerup) => Debug.Log("Unequipped charm.");
 }
