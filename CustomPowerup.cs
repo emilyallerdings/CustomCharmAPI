@@ -29,15 +29,26 @@ namespace PowerupAPI.Powerups
         public PowerupScript.PowerupEvent onThrowAway = null;
 
         public CustomPowerup(
+            UnityEngine.GameObject prefab = null,
+            UnityEngine.AudioClip sound = null,
+            String displayName = null,
+            String description = null,
+            string unlockText = null,
             PowerupScript.Category category = PowerupScript.Category.normal,
             PowerupScript.Archetype archetype = PowerupScript.Archetype.generic,
             bool isInstantPowerup = false,
             int maxBuyTimes = -1,
             float storeRerollChance = 0f,
             int startingPrice = 1,
-            BigInteger unlockPrice = default
+            BigInteger unlockPrice = default,
+            PowerupScript.PowerupEvent onEquip = null,
+            PowerupScript.PowerupEvent onUnequip = null,
+            PowerupScript.PowerupEvent onPutInDrawer = null,
+            PowerupScript.PowerupEvent onThrowAway = null
         )
         {
+            this.prefab = prefab;
+            this.sound = sound;
             this.category = category;
             this.archetype = archetype;
             this.isInstantPowerup = isInstantPowerup;
@@ -45,6 +56,10 @@ namespace PowerupAPI.Powerups
             this.storeRerollChance = storeRerollChance;
             this.startingPrice = startingPrice;
             this.unlockPrice = unlockPrice == default ? new BigInteger(-1) : unlockPrice;
+            this.onEquip = onEquip;
+            this.onUnequip = onUnequip;
+            this.onPutInDrawer = onPutInDrawer;
+            this.onThrowAway = onThrowAway;
         }
 
        /* public void SetDisplayName(string nameKey, string displayName, string language){
