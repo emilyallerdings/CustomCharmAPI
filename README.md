@@ -4,7 +4,7 @@
   <h3 align="center">Clover Pit Custom Charm API</h3>
 
   <p align="center">
-    An API which allows for easy addition of extra charms to the game.
+    An API which allows for easy addition of extra charms to the CloverPit game!
   </p>
 </div>
 
@@ -14,19 +14,19 @@
 - Register custom powerups (charms) with custom models and sounds
 - Hook into game events like equip/unequip
 - Supports localization through I2
-- Asset bundle support for models and sounds
 - Automatically integrates with the game's charm system
-- Compatible with other BepInEx mods
 
-##  Installation
+## 🚀 Installation
 
 1. Download and install [BepInEx](https://github.com/BepInEx/BepInEx) for your game.
 2. [Download the latest release `.dll` from the Releases section](https://github.com/emilyallerdings/CustomCharmAPI/releases).
 3. Place the `.dll` in your `BepInEx/plugins/` folder.
 
-##  Basic Tutorial: Creating a Custom Charm
+## 🧪 Basic Tutorial: Creating a Custom Charm
 
-Here’s a step-by-step guide using the API:
+### 🔧 1. Create Your Plugin
+
+Use BepInEx to define a new mod and reference `CustomCharmAPI`. Here's a minimal example:
 
 ```csharp
 [BepInPlugin("com.yourname.mycharm", "My Custom Charm", "1.0.0")]
@@ -62,6 +62,43 @@ public class MyCharmPlugin : BaseUnityPlugin
     private static void OnEquip(PowerupScript powerup) => Debug.Log("Equipped charm!");
     private static void OnUnequip(PowerupScript powerup) => Debug.Log("Unequipped charm.");
 }
+```
+---
+
+### 📦 2. Bundle Your Assets
+
+Create your charm model and optional audio clip in Unity, then:
+
+- Name your GameObject (e.g. `mycharm`)  
+- Export as an AssetBundle (`mycharmbundle`)  
+- Place it next to your plugin `.dll`  
+
+---
+
+
+## 🧊 Example: CirnoFumoCharm
+
+This repo includes a working example in the [`CirnoFumoCharm`](https://github.com/emilyallerdings/CustomCharmAPI/tree/main/Examples/CirnoFumoCharm) folder.
+
+It demonstrates:
+
+- Loading an asset bundle (`cirno`)  
+- Assigning a sound (`cirnosound`)  
+- Adding a buff that increases slot machine sevens from 7 to 9  
+- Implementing `onEquip` and `onUnequip` behavior  
+- Applying Harmony patches  
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## 🛠️ Contributing
+
+Pull requests and improvements are welcome. Feel free to fork and suggest features!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
