@@ -9,112 +9,59 @@
 </div>
 
 
-## Installation
+##  Features
+
+- Register custom powerups (charms) with custom models and sounds
+- Hook into game events like equip/unequip
+- Supports localization through I2
+- Asset bundle support for models and sounds
+- Automatically integrates with the game's charm system
+- Compatible with other BepInEx mods
+
+##  Installation
 
 1. Download and install [BepInEx](https://github.com/BepInEx/BepInEx) for your game.
-2. [Download the latest `.dll` file from the Releases section](https://github.com/emilyallerdings/CustomCharmAPI/releases).
-3. Place the `.dll` into the `BepInEx/plugins` folder in your game directory.
+2. [Download the latest release `.dll` from the Releases section](https://github.com/emilyallerdings/CustomCharmAPI/releases).
+3. Place the `.dll` in your `BepInEx/plugins/` folder.
 
-CustomCharmAPI
+##  Basic Tutorial: Creating a Custom Charm
 
-CustomCharmAPI is a modding API that makes it easy to add custom charms (powerups) to your Unity game using BepInEx. This API handles prefab cloning, event registration, I2 localization integration, and asset injection, all with minimal boilerplate.
+Here’s a step-by-step guide using the API:
 
-✨ Features
-
-Easy charm registration
-
-Custom equip/unequip events
-
-Automatic localization key generation
-
-AssetBundle support for prefabs and sounds
-
-Compatibility with other mods using BepInEx + Harmony
-
-🧩 Installation
-
-Install BepInEx for your game.
-
-Download the latest .dll file from the Releases section.
-
-Place the .dll in your BepInEx/plugins folder.
-
-🧪 Basic Tutorial: Creating a Custom Charm
-
-Here’s a step-by-step guide to creating a custom charm using CustomCharmAPI.
-
-🔧 1. Create Your Plugin
-
-[BepInPlugin("com.yourname.yourmod", "My Custom Charm", "1.0.0")]
+```csharp
+[BepInPlugin("com.yourname.mycharm", "My Custom Charm", "1.0.0")]
 [BepInDependency("com.unconscious.powerupapi", BepInDependency.DependencyFlags.HardDependency)]
-public class MyCustomCharm : BaseUnityPlugin
+public class MyCharmPlugin : BaseUnityPlugin
 {
     void Awake()
     {
-        string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "mycharmbundle");
+        string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "mybundle");
         AssetBundle bundle = AssetBundle.LoadFromFile(path);
 
-        GameObject charmPrefab = bundle.LoadAsset<GameObject>("mycharm");
-        AudioClip charmSound = bundle.LoadAsset<AudioClip>("mysound");
+        GameObject prefab = bundle.LoadAsset<GameObject>("mycharm");
+        AudioClip sound = bundle.LoadAsset<AudioClip>("mysound");
 
-        charmPrefab.name = "Powerup My Charm";
-        charmPrefab.transform.localScale = Vector3.one;
-        charmPrefab.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
+        prefab.name = "Powerup My Charm";
+        prefab.transform.localScale = Vector3.one;
+        prefab.transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
 
-        CustomPowerup charm = new CustomPowerup
+        CustomPowerup myCharm = new CustomPowerup
         {
-            prefab = charmPrefab,
-            sound = charmSound,
+            prefab = prefab,
+            sound = sound,
             displayName = "My Custom Charm",
-            description = "Grants a mysterious buff!",
+            description = "Grants a mysterious buff.",
             startingPrice = 2,
-            onEquip = MyOnEquip,
-            onUnequip = MyOnUnequip
+            onEquip = OnEquip,
+            onUnequip = OnUnequip
         };
 
-        CustomPowerupAPI.AddCustomPowerup(charm);
+        CustomPowerupAPI.AddCustomPowerup(myCharm);
     }
 
-    private static void MyOnEquip(PowerupScript powerup)
-    {
-        Debug.Log("Equipped My Custom Charm!");
-    }
-
-    private static void MyOnUnequip(PowerupScript powerup)
-    {
-        Debug.Log("Unequipped My Custom Charm.");
-    }
+    private static void OnEquip(PowerupScript powerup) => Debug.Log("Equipped charm!");
+    private static void OnUnequip(PowerupScript powerup) => Debug.Log("Unequipped charm.");
 }
-
-📦 2. Prepare Asset Bundle
-
-Create a prefab (e.g. mycharm) and optionally a sound (mysound) in Unity.
-
-Export them as an asset bundle.
-
-Place the bundle in the same folder as your .dll.
-
-🧊 Example Mod: CirnoFumoCharm
-
-A complete example plugin is available: CirnoFumoCharm.cs
-
-Loads a Cirno prefab and sound
-
-Implements onEquip/onUnequip logic
-
-Modifies symbol values if equipped
-
-📜 License
-
-MIT License
-
-🙌 Credits
-
-Developed by emilyallerdings
-
-Feel free to contribute, suggest improvements, or build your own charms!
-
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
