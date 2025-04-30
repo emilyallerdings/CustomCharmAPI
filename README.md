@@ -82,6 +82,12 @@ Create your charm model and optional audio clip in Unity, then:
 
 ---
 
+### ▶️ 3. Run the Game
+
+Launch the game with BepInEx. If your mod is correctly configured, the charm will be registered when the main game scene loads (e.g. `03GameScene`).  
+You can check `BepInEx/LogOutput.log` for confirmation and debug messages or the BepInEx console (if it's enabled).
+
+---
 
 ## 🧊 Example: CirnoFumoCharm
 
