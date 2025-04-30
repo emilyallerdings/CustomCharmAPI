@@ -77,8 +77,8 @@ public class MyCharmPlugin : BaseUnityPlugin
 
 Create your charm model and optional audio clip in Unity, then:
 
-- Name your GameObject (e.g. `mycharm`)  
-- Export as an AssetBundle (`mycharmbundle`)  
+- Name your GameObject (e.g. `mycharm`, `mysound`)  
+- Export as an AssetBundle (`mybundle`)  
 - Place it next to your plugin `.dll`  
 
 ---
@@ -91,18 +91,13 @@ This repo includes a working example in the [`CirnoFumoCharm`](https://github.co
 It demonstrates:
 
 - Loading an asset bundle (`cirno`)  
-- Assigning a sound (`cirnosound`)  
-- Adding a buff that increases slot machine sevens from 7 to 9  
+- Assigning a sound (`cirnosound`) and prefab (`cirno`)
+- Adding a buff that increases slot machine sevens base value from 7 to 9  
 - Implementing `onEquip` and `onUnequip` behavior  
-- Applying Harmony patches  
+- Applying Harmony patches to modify game logic (For making sevens base value 9)
 
 ---
 
-## 📜 License
-
-This project is licensed under the [MIT License](./LICENSE).
-
----
 
 ## 🛠️ Contributing
 
