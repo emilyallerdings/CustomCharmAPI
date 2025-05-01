@@ -49,6 +49,9 @@ namespace PowerupAPI.Powerups
         {
             this.prefab = prefab;
             this.sound = sound;
+            this.displayName = displayName;
+            this.description = description;
+            this.unlockText = unlockText;
             this.category = category;
             this.archetype = archetype;
             this.isInstantPowerup = isInstantPowerup;

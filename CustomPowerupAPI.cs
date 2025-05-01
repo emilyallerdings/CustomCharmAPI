@@ -44,8 +44,9 @@ public class CustomPowerupAPI : BaseUnityPlugin
         Logger.LogInfo("PowerUpGroupInjectMod patches applied!");
     }
 
-    public static void AddCustomPowerup(CustomPowerup customPowerup){
+    public static PowerupScript.Identifier AddCustomPowerup(CustomPowerup customPowerup){
         CustomPowerups.Add(customPowerup);
+        return (PowerupScript.Identifier)(CustomPowerups.Count + FirstModdedId);
     }
 
     private void TryAddLocalizationSource(LanguageSourceData sourceData)
@@ -86,7 +87,7 @@ public static void AddI2Term(string termKey, string translation, string language
     source.UpdateDictionary(true);
 
     // Optional debug
-    Debug.Log($"Added term '{termKey}' with translation '{translation}' in '{language}'");
+    Debug.LogWarning($"Added term '{termKey}' with translation '{translation}' in '{language}'");
 }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
