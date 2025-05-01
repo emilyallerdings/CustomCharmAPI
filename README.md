@@ -94,6 +94,7 @@ Make sure you have CustomCharmAPI installed in the plugins folder and that you p
     <GameDir>D:\SteamLibrary\steamapps\common\CloverPit Demo</GameDir> // <------ CHANGE THIS TO YOUR GAME DIR
   </PropertyGroup>
 ```
+Once it's built correctly paste the `.dll` into the `BepInEx/plugins` folder.
 
 ---
 
