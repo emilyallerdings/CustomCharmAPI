@@ -92,7 +92,8 @@ Make sure you have CustomCharmAPI installed in the plugins folder and that you p
     <OutputType>Library</OutputType>
     <AssemblyName>CustomPowerupAPI</AssemblyName>
     <GameDir>D:\SteamLibrary\steamapps\common\CloverPit Demo</GameDir>
-  </PropertyGroup>```
+  </PropertyGroup>
+```
 
 ---
 
