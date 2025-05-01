@@ -91,7 +91,7 @@ You can check `BepInEx/LogOutput.log` for confirmation and debug messages or the
 
 ## 🧊 Example: CirnoFumoCharm
 
-This repo includes a working example in the [`CirnoFumoCharm`](https://github.com/emilyallerdings/CustomCharmAPI/tree/main/Examples/CirnoFumoCharm) folder.
+This repo includes a working example in the [`CirnoFumoCharm`](https://github.com/emilyallerdings/CirnoPlugin) folder.
 
 It demonstrates:
 
