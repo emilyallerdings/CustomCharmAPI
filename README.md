@@ -84,7 +84,7 @@ Create your charm model and optional audio clip in Unity, then:
 
 ### 🛠️ 3. Build Your Plugin
 
-Build your plugin with dotnet. You can copy my `.csproj` from this repository for basic dependencies.
+Build your plugin with dotnet. You can copy my `.csproj` [`from this repository`](https://github.com/emilyallerdings/CirnoPlugin) for basic dependencies.
 Make sure you have CustomCharmAPI installed in the plugins folder and that you properly set the game directory in your `.csproj`.
 ```
   <PropertyGroup>
