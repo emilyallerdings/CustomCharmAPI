@@ -82,6 +82,16 @@ Create your charm model and optional audio clip in Unity, then:
 
 ---
 
+### 🛠️ 3. Build Your Plugin
+
+Build your plugin with dotnet. You can copy my `.csproj` from this repository for basic dependencies.
+Make sure you have CustomCharmAPI installed in the plugins folder and that you properly set the game directory in your `.csproj`.
+```<GameDir>D:\SteamLibrary\steamapps\common\CloverPit Demo</GameDir>```
+
+---
+
+---
+
 ### ▶️ 3. Run the Game
 
 Launch the game with BepInEx. If your mod is correctly configured, the charm will be registered when the main game scene loads (e.g. `03GameScene`).  
