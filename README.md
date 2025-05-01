@@ -90,8 +90,8 @@ Make sure you have CustomCharmAPI installed in the plugins folder and that you p
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework> <!-- net472 = .NET Framework 4.7.2 -->
     <OutputType>Library</OutputType>
-    <AssemblyName>CustomPowerupAPI</AssemblyName>
-    <GameDir>D:\SteamLibrary\steamapps\common\CloverPit Demo</GameDir>
+    <AssemblyName>CustomPowerupAPI</AssemblyName> // <------ CHANGE THIS NAME
+    <GameDir>D:\SteamLibrary\steamapps\common\CloverPit Demo</GameDir> // <------ CHANGE THIS TO YOUR GAME DIR
   </PropertyGroup>
 ```
 
