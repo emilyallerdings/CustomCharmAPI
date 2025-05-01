@@ -86,7 +86,13 @@ Create your charm model and optional audio clip in Unity, then:
 
 Build your plugin with dotnet. You can copy my `.csproj` from this repository for basic dependencies.
 Make sure you have CustomCharmAPI installed in the plugins folder and that you properly set the game directory in your `.csproj`.
-```<GameDir>D:\SteamLibrary\steamapps\common\CloverPit Demo</GameDir>```
+```
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework> <!-- net472 = .NET Framework 4.7.2 -->
+    <OutputType>Library</OutputType>
+    <AssemblyName>CustomPowerupAPI</AssemblyName>
+    <GameDir>D:\SteamLibrary\steamapps\common\CloverPit Demo</GameDir>
+  </PropertyGroup>```
 
 ---
 
